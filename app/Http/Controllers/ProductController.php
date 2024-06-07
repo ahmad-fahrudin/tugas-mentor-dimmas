@@ -12,12 +12,15 @@ class ProductController extends Controller
 
     public function __construct()
     {
+
         $this->product = new product();
     }
+
     public function index()
     {
         $products = $this->product->all();
         $categories = Category::pluck("catname", "id");
+
 
         return view("product.index", compact("products", "categories"));
     }
